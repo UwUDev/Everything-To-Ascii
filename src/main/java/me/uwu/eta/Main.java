@@ -12,8 +12,15 @@ public class Main {
         ImgToAscii ascii = new ImgToAscii(img);
         ascii.setDensity(7);
         ascii.setCharById(";", 4);
+        ascii.invert(true);
         ascii.convert();
         //System.out.println(ascii.getSB().toString());
+        ascii.print();
+
+        System.out.println("\n\n\n");
+
+        ascii.invert(false);
+        ascii.convert();
         ascii.print();
 
         saveToFile(ascii.getSB());

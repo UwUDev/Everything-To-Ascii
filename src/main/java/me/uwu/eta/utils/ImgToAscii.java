@@ -11,12 +11,17 @@ public class ImgToAscii {
     private int density = 1;
     private StringBuilder sb = new StringBuilder();
     private String[] chars = new String[]{" ", ".", "*", "+", "^", "&", "8", "#", "@"};
+    private boolean invert = true;
 
     public ImgToAscii(File image) {
         try {
             img = ImageIO.read(image);
         } catch (IOException ignored) {
         }
+    }
+
+    public void invert(boolean invert){
+        this.invert = invert;
     }
 
     public void setChars(String character1, String character2, String character3, String character4, String character5, String character6, String character7, String character8, String character9){
@@ -67,26 +72,48 @@ public class ImgToAscii {
     }
 
     public String toChar(double g) {
-        String chara;
-        if (g >= 240) {
-            chara = chars[0];
-        } else if (g >= 210) {
-            chara = chars[1];
-        } else if (g >= 190) {
-            chara = chars[2];
-        } else if (g >= 170) {
-            chara = chars[3];
-        } else if (g >= 120) {
-            chara = chars[4];
-        } else if (g >= 110) {
-            chara = chars[5];
-        } else if (g >= 80) {
-            chara = chars[6];
-        } else if (g >= 60) {
-            chara = chars[7];
+        String character;
+        if (!invert) {
+            if (g >= 240) {
+                character = chars[0];
+            } else if (g >= 210) {
+                character = chars[1];
+            } else if (g >= 190) {
+                character = chars[2];
+            } else if (g >= 170) {
+                character = chars[3];
+            } else if (g >= 120) {
+                character = chars[4];
+            } else if (g >= 110) {
+                character = chars[5];
+            } else if (g >= 80) {
+                character = chars[6];
+            } else if (g >= 60) {
+                character = chars[7];
+            } else {
+                character = chars[8];
+            }
         } else {
-            chara = chars[8];
+            if (g >= 240) {
+                character = chars[8];
+            } else if (g >= 210) {
+                character = chars[7];
+            } else if (g >= 190) {
+                character = chars[6];
+            } else if (g >= 170) {
+                character = chars[5];
+            } else if (g >= 120) {
+                character = chars[4];
+            } else if (g >= 110) {
+                character = chars[3];
+            } else if (g >= 80) {
+                character = chars[2];
+            } else if (g >= 60) {
+                character = chars[1];
+            } else {
+                character = chars[0];
+            }
         }
-        return chara;
+        return character;
     }
 }
