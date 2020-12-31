@@ -74,7 +74,7 @@ public class ImgToAscii {
 
     public String toChar(double g) {
         String character;
-        if (!invert) {
+        if (invert) {
             if (g >= 240) {
                 character = chars[0];
             } else if (g >= 210) {

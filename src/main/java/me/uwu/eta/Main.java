@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         File img = new File("rick.jpg");
         ImgToAscii ascii = new ImgToAscii(img);
-        ascii.setDensity(7);
+        ascii.setDensity(5);
         ascii.setCharById(";", 4);
         ascii.convert();
         ascii.print();
