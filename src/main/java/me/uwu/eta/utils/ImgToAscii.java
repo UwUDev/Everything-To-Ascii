@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class ImgToAscii {
@@ -11,7 +12,7 @@ public class ImgToAscii {
     private int density = 1;
     private StringBuilder sb = new StringBuilder();
     private String[] chars = new String[]{" ", ".", "*", "+", "^", "&", "8", "#", "@"};
-    private boolean invert = true;
+    private boolean invert = false;
 
     public ImgToAscii(File image) {
         try {
@@ -115,5 +116,11 @@ public class ImgToAscii {
             }
         }
         return character;
+    }
+
+    public void exportToTxtFile(String path) throws IOException {
+        FileWriter writer = new FileWriter(path);
+        writer.write(sb.toString());
+        writer.close();
     }
 }
