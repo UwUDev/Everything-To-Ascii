@@ -11,6 +11,7 @@ public class Main {
         File img = new File("rick.jpg");
         ImgToAscii ascii = new ImgToAscii(img);
         ascii.setDensity(7);
+        ascii.setCharById(";", 4);
         ascii.convert();
         //System.out.println(ascii.getSB().toString());
         ascii.print();
@@ -19,11 +20,8 @@ public class Main {
     }
 
     public static void saveToFile(StringBuilder sb) throws IOException {
-        File save = new File("result.txt");
-        save.createNewFile();
-
-        FileWriter myWriter = new FileWriter("result.txt");
-        myWriter.write(sb.toString());
-        myWriter.close();
+        FileWriter writer = new FileWriter("result.txt");
+        writer.write(sb.toString());
+        writer.close();
     }
 }

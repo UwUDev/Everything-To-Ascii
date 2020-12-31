@@ -19,6 +19,26 @@ public class ImgToAscii {
         }
     }
 
+    public void setChars(String character1, String character2, String character3, String character4, String character5, String character6, String character7, String character8, String character9){
+        chars[0] = character1;
+        chars[1] = character2;
+        chars[2] = character3;
+        chars[3] = character4;
+        chars[4] = character5;
+        chars[5] = character6;
+        chars[6] = character7;
+        chars[7] = character8;
+        chars[8] = character9;
+    }
+
+    public void setCharById(String character, int id){
+        if(id < 0 || id > 8){
+            System.out.println("Id need to be between 0 and 8");
+            return;
+        }
+        chars[id] = character;
+    }
+
     public void setDensity(int density){
         this.density = density;
     }
@@ -47,7 +67,7 @@ public class ImgToAscii {
     }
 
     public String toChar(double g) {
-        String chara = " ";
+        String chara;
         if (g >= 240) {
             chara = chars[0];
         } else if (g >= 210) {
