@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class ImgToAscii {
     private BufferedImage img;
@@ -55,9 +56,9 @@ public class ImgToAscii {
         this.sb = new StringBuilder();
 
 
-        for (int x = 0; x < img.getHeight(); x+=density) {
-            for (int y = 0; y < img.getWidth(); y+=density) {
-                Color color = new Color(img.getRGB(y, x));
+        for (int y = 0; y < img.getHeight(); y+=density) {
+            for (int x = 0; x < img.getWidth(); x+=density) {
+                Color color = new Color(img.getRGB(x, y));
                 double pixelColorValue = (((color.getRed() * 0.30) + (color.getBlue() * 0.59) + (color
                         .getGreen() * 0.11)));
                 this.sb.append(toChar(pixelColorValue));
@@ -126,12 +127,9 @@ public class ImgToAscii {
             writer.write(sb.toString());
             writer.close();
         } else {
-            Writer out = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(path), "UTF-8"));
-            try {
+            try (Writer out = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(path), StandardCharsets.UTF_8))) {
                 out.write(sb.toString());
-            } finally {
-                out.close();
             }
         }
     }

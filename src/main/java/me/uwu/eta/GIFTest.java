@@ -9,7 +9,12 @@ public class GIFTest {
     public static void main(String[] args) throws IOException, InterruptedException {
         File gif = new File("tenor3.gif");
         GifToAscii ascii = new GifToAscii(gif);
-        ascii.setFrames();
+        ascii.setChars(" ", " ", "░", "░", "▒", "▒", "▓", "▓", "█");
+        ascii.setDensity(7);
+        ascii.setPlayDelay(1);
+        ascii.convert();
+
         ascii.play();
+        ascii.exportToFolder("result", true);
     }
 }
