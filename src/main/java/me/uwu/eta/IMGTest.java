@@ -5,15 +5,15 @@ import me.uwu.eta.utils.ImgToAscii;
 import java.io.File;
 import java.io.IOException;
 
-public class Main {
+public class IMGTest {
     public static void main(String[] args) throws IOException {
         File img = new File("rick.jpg");
         ImgToAscii ascii = new ImgToAscii(img);
-        ascii.setDensity(5);
-        ascii.setCharById(";", 4);
+        ascii.setDensity(13);
+        /*ascii.setCharById(";", 4);
         ascii.convert();
         ascii.print();
-        ascii.exportToTxtFile("result.txt");
+        ascii.exportToTxtFile("result.txt", true);
 
         System.out.println("\n\n\n");
 
@@ -21,6 +21,9 @@ public class Main {
         ascii.convert();
         ascii.print();
 
-        ascii.exportToTxtFile("result_invert.txt");
+        ascii.exportToTxtFile("result_invert.txt", true);*/
+        ascii.setChars(" ", " ", "░", "░", "▒", "▒", "▓", "▓", "█");
+        ascii.convert();
+        ascii.exportToTxtFile("result.txt", true);
     }
 }

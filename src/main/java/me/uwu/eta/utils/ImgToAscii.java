@@ -3,9 +3,7 @@ package me.uwu.eta.utils;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class ImgToAscii {
     private BufferedImage img;
@@ -49,13 +47,17 @@ public class ImgToAscii {
         this.density = density;
     }
 
+    public void forceBuffered(BufferedImage bufferedImage){
+        this.img = bufferedImage;
+    }
+
     public void convert() {
         this.sb = new StringBuilder();
 
 
-        for (int i = 0; i < img.getHeight(); i+=density) {
-            for (int j = 0; j < img.getWidth(); j+=density) {
-                Color color = new Color(img.getRGB(j, i));
+        for (int x = 0; x < img.getHeight(); x+=density) {
+            for (int y = 0; y < img.getWidth(); y+=density) {
+                Color color = new Color(img.getRGB(y, x));
                 double pixelColorValue = (((color.getRed() * 0.30) + (color.getBlue() * 0.59) + (color
                         .getGreen() * 0.11)));
                 this.sb.append(toChar(pixelColorValue));
@@ -118,9 +120,19 @@ public class ImgToAscii {
         return character;
     }
 
-    public void exportToTxtFile(String path) throws IOException {
-        FileWriter writer = new FileWriter(path);
-        writer.write(sb.toString());
-        writer.close();
+    public void exportToTxtFile(String path, boolean toUTF8) throws IOException {
+        if(!toUTF8) {
+            FileWriter writer = new FileWriter(path);
+            writer.write(sb.toString());
+            writer.close();
+        } else {
+            Writer out = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(path), "UTF-8"));
+            try {
+                out.write(sb.toString());
+            } finally {
+                out.close();
+            }
+        }
     }
 }
