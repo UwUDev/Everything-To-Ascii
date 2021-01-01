@@ -1,14 +1,10 @@
 package me.uwu.eta.utils;
 
-import com.sun.imageio.plugins.gif.GIFImageReader;
-import com.sun.imageio.plugins.gif.GIFImageReaderSpi;
-
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -19,7 +15,7 @@ public class GifToAscii {
     private String[] chars = new String[]{" ", ".", "*", "+", "^", "&", "8", "#", "@"};
     private boolean invert = false;
 
-    public GifToAscii(File gif) throws IOException {
+    public GifToAscii(File gif) {
         this.gif = gif;
     }
 
@@ -77,7 +73,7 @@ public class GifToAscii {
     public void setFrames() throws IOException {
         ArrayList<BufferedImage> frame = new ArrayList<>();
         ImageReader imageReader = ImageIO.getImageReadersBySuffix("GIF").next();
-        ImageInputStream inputStream = ImageIO.createImageInputStream(new File("rick.gif"));
+        ImageInputStream inputStream = ImageIO.createImageInputStream(gif);
         imageReader.setInput(inputStream);
         for (int i = 0, j = imageReader.getNumImages(true); i < j; i++)
         {
