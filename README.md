@@ -19,7 +19,7 @@ A library to trnaform any type of media into ascii art
 ▓▓▓▓  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▓▓▓
 ```
 
-![alt text](https://i.gyazo.com/thumb/1200/13e28deed0a016f2f7302002d62b6ffa-gif.gif)
+![alt text](https://github.com/UwUDev/Everything-To-Ascii/blob/master/preview.gif?raw=true)
 
 And please, put a star if you enjoy my work, it costs nothing and it lets me know if the project has pleased
 
