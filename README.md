@@ -25,7 +25,7 @@ And please, put a star if you enjoy my work, it costs nothing and it lets me kno
 
 ### Prerequisites
 
-Make sure you have Java 8 or higher and chrome ver. 85 (lastest) before starting
+Make sure you have Java 8 or higher before starting
 
 * Download Java 8 [Here](https://www.java.com/download/)  
 And thats all
