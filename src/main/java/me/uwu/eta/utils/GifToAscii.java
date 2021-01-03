@@ -94,12 +94,15 @@ public class GifToAscii {
         asciiFrames = txtframes;
     }
 
-    public void play() throws InterruptedException {
+    public void play() throws InterruptedException, IOException {
         for (int l = 1; l <= loops; l++) {
             for (String asciiFrame : asciiFrames) {
                 Thread.sleep(playDelay);
                 ConsoleUtils.clearScreen();
-                System.out.println(asciiFrame);
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new
+                        FileOutputStream(java.io.FileDescriptor.out), StandardCharsets.UTF_8), (frames.get(1).getHeight() * frames.get(1).getWidth()) + 150);
+                out.write(asciiFrame);
+                out.flush();
             }
         }
         /*BufferedImage test = frames.get(1);

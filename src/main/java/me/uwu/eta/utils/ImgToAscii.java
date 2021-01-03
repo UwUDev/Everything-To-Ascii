@@ -71,8 +71,11 @@ public class ImgToAscii {
         return this.sb;
     }
 
-    public void print(){
-        System.out.println(this.sb.toString());
+    public void print() throws IOException {
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new
+                FileOutputStream(java.io.FileDescriptor.out), StandardCharsets.UTF_8), (img.getHeight() * img.getWidth()) + 150);
+        out.write(sb.toString());
+        out.flush();
     }
 
     public String toChar(double g) {
