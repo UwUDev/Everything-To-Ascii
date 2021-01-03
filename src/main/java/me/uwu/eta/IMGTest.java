@@ -11,9 +11,9 @@ public class IMGTest {
         ConsoleUtils.autoColorSetup();
         ConsoleUtils.clearScreen();
 
-        File img = new File("rick.jpg");
+        File img = new File("salut.jpg");
         ImgToAscii ascii = new ImgToAscii(img);
-        ascii.setDensity(13);
+        ascii.setDensity(6);
         /*ascii.setCharById(";", 4);
         ascii.convert();
         ascii.print();
@@ -29,5 +29,6 @@ public class IMGTest {
         ascii.setChars(" ", " ", "░", "░", "▒", "▒", "▓", "▓", "█");
         ascii.convert();
         ascii.exportToTxtFile("result.txt", true);
+        ascii.print();
     }
 }

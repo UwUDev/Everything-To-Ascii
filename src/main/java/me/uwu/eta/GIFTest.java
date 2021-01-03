@@ -19,7 +19,7 @@ public class GIFTest {
 
         File gif = new File("tenor3.gif");
         GifToAscii ascii = new GifToAscii(gif);
-        //ascii.setChars(" ", " ", "░", "░", "▒", "▒", "▓", "▓", "█");
+        ascii.setChars(" ", " ", "░", "░", "▒", "▒", "▓", "▓", "█");
         ascii.setDensity(d);
         ascii.setPlayDelay(dl);
         ascii.convert();
