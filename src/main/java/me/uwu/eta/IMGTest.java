@@ -13,7 +13,7 @@ public class IMGTest {
 
         File img = new File("salut.jpg");
         ImgToAscii ascii = new ImgToAscii(img);
-        ascii.setDensity(6);
+        ascii.setDensity(13);
         /*ascii.setCharById(";", 4);
         ascii.convert();
         ascii.print();
