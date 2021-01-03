@@ -1,5 +1,6 @@
 package me.uwu.eta;
 
+import me.uwu.eta.utils.ConsoleUtils;
 import me.uwu.eta.utils.ImgToAscii;
 
 import java.io.File;
@@ -7,6 +8,9 @@ import java.io.IOException;
 
 public class IMGTest {
     public static void main(String[] args) throws IOException {
+        ConsoleUtils.autoColorSetup();
+        ConsoleUtils.clearScreen();
+
         File img = new File("rick.jpg");
         ImgToAscii ascii = new ImgToAscii(img);
         ascii.setDensity(13);

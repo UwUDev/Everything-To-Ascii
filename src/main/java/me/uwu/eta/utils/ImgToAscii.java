@@ -56,8 +56,8 @@ public class ImgToAscii {
         this.sb = new StringBuilder();
 
 
-        for (int y = 0; y < img.getHeight(); y+=density) {
-            for (int x = 0; x < img.getWidth(); x+=density) {
+        for (int y = 0; y < img.getHeight(); y=y+(density*2)) {
+            for (int x = 0; x < img.getWidth(); x=x+density) {
                 Color color = new Color(img.getRGB(x, y));
                 double pixelColorValue = (((color.getRed() * 0.30) + (color.getBlue() * 0.59) + (color
                         .getGreen() * 0.11)));

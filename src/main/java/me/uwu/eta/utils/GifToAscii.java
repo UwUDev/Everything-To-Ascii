@@ -16,6 +16,7 @@ public class GifToAscii {
     private String[] chars = new String[]{" ", ".", "*", "+", "^", "&", "8", "#", "@"};
     private boolean invert = false;
     private int playDelay = 100;
+    private int loops = 1;
 
     public GifToAscii(File gif) throws IOException {
         this.gif = gif;
@@ -25,6 +26,7 @@ public class GifToAscii {
     public void invert(boolean invert){ this.invert = invert; }
     public void setPlayDelay(int delay){ this.playDelay = delay; }
     public void setDensity(int density){ this.density = density; }
+    public void setPlayLoops(int loops){ this.loops = loops; }
 
     public ArrayList<String> getAsciiFrames(){ return asciiFrames; }
 
@@ -93,9 +95,12 @@ public class GifToAscii {
     }
 
     public void play() throws InterruptedException {
-        for (String asciiFrame : asciiFrames){
-            Thread.sleep(playDelay);
-            System.out.println(asciiFrame);
+        for (int l = 1; l <= loops; l++) {
+            for (String asciiFrame : asciiFrames) {
+                Thread.sleep(playDelay);
+                ConsoleUtils.clearScreen();
+                System.out.println(asciiFrame);
+            }
         }
         /*BufferedImage test = frames.get(1);
         ImgToAscii ita = new ImgToAscii(new File(""));
