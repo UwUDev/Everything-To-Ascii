@@ -67,6 +67,12 @@ public class ImgToAscii {
         }
     }
 
+    public String toDuckyScript(){
+        String result = "STRING ";
+        result+=  sb.toString().replace("\n", "\nENTER\nSTRING ").replace("\f", "");
+        return result;
+    }
+
     public StringBuilder getSB(){
         return this.sb;
     }

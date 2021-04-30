@@ -61,6 +61,15 @@ public class GifToAscii {
         }
     }
 
+    public String toDucyScript(int delay){
+        StringBuilder sb = new StringBuilder();
+        sb.append("LOCALE FR\nDEFAULTDELAY 0\n");
+        for (String s : asciiFrames){
+            sb.append(s.replace("\n", "\nENTER\nSTRING ").replace("\f", "")).append("\nDELAY ").append(delay).append("\nCTRL A\n");
+        }
+        return sb.toString();
+    }
+
     public void setCharById(String character, int id){
         if(id < 0 || id > 8){
             System.out.println("Id need to be between 0 and 8");
